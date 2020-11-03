@@ -19,11 +19,19 @@ WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31'
 --Employee managers by departments
 
 CREATE VIEW "Department Managers" AS
-SELECT dm.emp_no, e.last_name, e.first_name, d.dept_name
+SELECT d.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
 FROM department AS d
 INNER JOIN department_manager AS dm ON dm.dept_no = d.dept_no
 INNER JOIN employees AS e ON dm.emp_no = e.emp_no;
 ----
+
+-- Employees and department
+
+CREATE VIEW "Department Employees" AS
+SELECT de.emp_no, e.last_name, e.first_name, d.dept_name
+FROM department AS d
+INNER JOIN department_employees AS de ON de.dept_no = d.dept_no
+INNER JOIN employees AS e ON de.emp_no = e.emp_no;
 
 -- Finding Hercules
 
@@ -42,3 +50,10 @@ FROM employees AS e
 INNER JOIN department_employees AS de ON e.emp_no = de.emp_no
 INNER JOIN department AS d ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales';
+
+-- Finding all employees in the Sales and Development department
+
+SELECT *
+FROM department AS d
+WHERE dept_name = 'Sales' OR dept_name = 'Development';
+
