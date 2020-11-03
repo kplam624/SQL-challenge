@@ -49,10 +49,8 @@ SELECT * FROM employees;
 -- Creating a table for Department Employees
 
 CREATE TABLE Department_Employees(
-emp_no int NOT NULL,
+emp_no int NOT NULL PRIMARY KEY,
 dept_no varchar(10),
-FOREIGN KEY(emp_no)
-REFERENCES employees (emp_no),
 FOREIGN KEY(dept_no)
 REFERENCES Department (dept_no)
 );
