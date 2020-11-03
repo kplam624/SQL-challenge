@@ -1,10 +1,10 @@
 -- Need to restart the project
-DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS Department_Employees;
-DROP TABLE IF EXISTS Department;
-DROP TABLE IF EXISTS Department_Manager;
-DROP TABLE IF EXISTS Titles;
-DROP TABLE IF EXISTS Salaries;
+DROP TABLE IF EXISTS employees CASCADE;
+DROP TABLE IF EXISTS Department_Employees CASCADE;
+DROP TABLE IF EXISTS Department CASCADE;
+DROP TABLE IF EXISTS Department_Manager CASCADE;
+DROP TABLE IF EXISTS Titles CASCADE;
+DROP TABLE IF EXISTS Salaries CASCADE;
 
 -- Creating a table for titles
 
@@ -49,10 +49,13 @@ SELECT * FROM employees;
 -- Creating a table for Department Employees
 
 CREATE TABLE Department_Employees(
-emp_no int NOT NULL PRIMARY KEY,
+emp_no int NOT NULL,
 dept_no varchar(10),
+FOREIGN KEY (emp_no)
+REFERENCES Employees (emp_no),
 FOREIGN KEY(dept_no)
-REFERENCES Department (dept_no)
+REFERENCES Department (dept_no),
+PRIMARY KEY(emp_no, dept_no)
 );
 
 -- Checking to see if the import and table are correct
