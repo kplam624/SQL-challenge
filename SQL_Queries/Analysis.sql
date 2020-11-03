@@ -26,6 +26,9 @@ INNER JOIN employees AS e ON dm.emp_no = e.emp_no;
 ----
 
 -- Finding Hercules
+CREATE VIEW "Finding Hercules" AS
 SELECT first_name, last_name, sex
-FROM employees;
+FROM employees
+WHERE first_name = 'Hercules' 
+AND last_name LIKE 'B%';
 
