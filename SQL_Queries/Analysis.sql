@@ -53,6 +53,7 @@ WHERE d.dept_name = 'Sales';
 
 -- Finding all employees in the Sales and Development department
 
+CREATE VIEW "Sales and Development employees" AS
 SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
 FROM employees AS e
 INNER JOIN department_employees AS de ON e.emp_no = de.emp_no
@@ -62,5 +63,8 @@ OR dept_name = 'Development';
 ----
 
 -- Frequency of last names
-SELECT *
-FROM employees;
+
+CREATE VIEW "Name Frequency" AS
+SELECT last_name, COUNT(last_name) AS "Name Frequency"
+FROM employees
+GROUP BY (last_name) ORDER BY "Name Frequency" DESC;
