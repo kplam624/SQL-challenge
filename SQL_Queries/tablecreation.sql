@@ -81,7 +81,7 @@ SELECT * FROM Department_Manager;
 -- Creating a table for Salaries
 
 CREATE TABLE Salaries(
-emp_no int NOT NULL, 
+emp_no int NOT NULL PRIMARY KEY, 
 salary int NOT NULL,
 FOREIGN KEY(emp_no)
 REFERENCES employees (emp_no)
