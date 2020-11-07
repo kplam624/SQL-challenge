@@ -1,4 +1,2 @@
-config file
-
-username = postgres
-password = watermelon
+username = 'postgres'
+password = 'watermelon'
