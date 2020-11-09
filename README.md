@@ -8,3 +8,5 @@ Within the queries folder contains a the SQL code to create the tables needed an
 Within the images folder contains the ERD and the plots from the bonus challenge.
 
 The code for the bonus challenge are found in the bonus folder.
+
+The resources folder contains the csvs that were used in the creation of the table.
